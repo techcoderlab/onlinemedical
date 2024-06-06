@@ -1,0 +1,80 @@
+/* ================== Fonts ================== */
+$font-family_heading: "Didact Gothic", sans-serif;
+$font-family_normal: "Assistant", sans-serif;
+
+/* ================== Color Schemes ================== */
+
+$primary-color: #90f1ef;
+$primary-color-2: #49e9e6;
+$primary-color-3: #073635;
+
+$secondary-color: #161a1d;
+$secondary-color-2: #f5f3f4;
+
+$black-color: #000000;
+$white-color: #ffffff;
+/* =========== Responsive Breakpoints Breakpoint ==========*/
+
+/* Small devices such as large phones */
+$breakpoint-sm: 640;
+/* Medium devices such as tablets */
+$breakpoint-md: 768;
+/* Large devices such as laptops */
+$breakpoint-lg: 1024;
+/* Largest devices such as desktops */
+$breakpoint-xl: 1280;
+/* Very Largest devices */
+$breakpoint-2xl: 1536;
+
+/* =========== Min and Max Viewport Sizes for Auto Scaling ==========*/
+$min_width: 400;
+$max_width: 1400;
+
+/* =========== Min and Max Normal Font Sizes ==========*/
+$min_text_font_size: 16;
+$max_text_font_size: 18;
+
+/* =========== Section Padding =========== */
+$max_padding_rems: 6.25;
+$min_padding_rems: 3.75;
+$v_factor: calc(
+  100 * ($max_padding_rems - $min_padding_rems) / ($max_width - $min_width)
+);
+$section_padding: clamp(
+  #{$min_padding_rems}rem,
+  #{$v_factor}vw,
+  #{$max_padding_rems}rem
+);
+
+/*========== z index ==========*/
+$z-fixed: 100;
+$z-tooltip: 10;
+
+/* ========== NAVIGATION VARIABLES ========== */
+$max-mobile_nav_width: $breakpoint-lg;
+$nav-mobile_height: 3.5rem;
+$nav-desktop_height: calc($nav-mobile_height + 1rem);
+
+$branding-aspect_ratio: "4 / 1";
+/* NOTE: $branding-height is calculated differently for different viewport widths */
+
+$desktop-nav_color: $white-color;
+$mobile-nav_color: darken($primary-color-3, 0);
+$toggle-buttons_size: 1.5rem;
+
+$nav-mobile-link_font_size: 1.3rem;
+$nav-mobile-link_text_color: lighten($primary-color-2, 35);
+$nav-mobile-toggle_close_color: $white-color;
+$nav-mobile-link_font_weight: 300;
+
+$nav-link_font_size: 1.05rem;
+$nav-link_text_color: $black-color;
+$nav-link_text_hover_color: darken($primary-color, 35);
+$nav-link_font_weight: 400;
+$nav-toggle_close_color: $black-color;
+
+/* ========== FOOTER VARIABLES ========== */
+$footer-border_color: #ccc;
+$footer-text_color: #f1f1f1;
+$footer-title_text_color: $secondary-color-2;
+$footer-background_color: $secondary-color;
