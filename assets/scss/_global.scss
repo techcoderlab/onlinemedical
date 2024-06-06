@@ -23,14 +23,14 @@ body {
   font-weight: 300;
   line-height: 1.75;
   letter-spacing: 0.02rem;
-  transition: all 0.4s ease;
+  // transition: all 0.2s ease;
 }
 
 html,
 body {
   display: block;
   overflow-x: hidden;
-  transition: all 0.5s ease;
+  // transition: all 0.2s ease-in;
   color: $secondary-color;
 }
 
@@ -185,9 +185,8 @@ video {
   overflow: hidden;
 }
 .image-wrapper {
-  position: absolute;
+  position: relative;
   inset: 0;
-  background: #f1f1f1;
   z-index: -1;
 
   .overlay {
