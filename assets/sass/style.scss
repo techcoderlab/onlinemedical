@@ -18,6 +18,25 @@
   overflow: hidden;
 }
 
+#header-hero.set-hero-bg-image .image__wrapper {
+  background-image: url("../images/doctor-header-hero.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  animation-name: fade;
+  animation-duration: 1s;
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
 header {
   position: relative;
 

@@ -34,6 +34,23 @@ body {
   color: $secondary-color;
 }
 
+/* assistant-regular - latin */
+@font-face {
+  font-style: normal;
+  font-family: "Assistant";
+  font-weight: 200 600;
+  font-display: swap;
+  src: local(""), url("../fonts/Assistant-Regular.woff2") format("woff2"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* didact-gothic-400 - latin */
+@font-face {
+  font-style: normal;
+  font-family: "Didact Gothic";
+  font-weight: 400;
+  font-display: swap;
+  src: local(""), url("../fonts/Didact-Gothic.woff2") format("woff2"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 p {
   margin: 0.6rem 0;
 }
@@ -74,9 +91,10 @@ video {
 
 /* Image loading skeleton background */
 .image-skeleton {
-  // background: rgb(221, 219, 221);
-  background: lighten($color: $primary-color, $amount: 18);
+  background: #e7e7e7;
+  // background: lighten($color: $primary-color, $amount: 18);
 }
+
 
 /*=============== TEXT SELECTION ===============*/
 ::-webkit-selection {
@@ -180,42 +198,42 @@ video {
   );
 }
 
-.image-wrapper-parent {
-  position: relative;
-  overflow: hidden;
-}
-.image-wrapper {
-  position: relative;
-  inset: 0;
-  z-index: -1;
+// .image-wrapper-parent {
+//   position: relative;
+//   overflow: hidden;
+// }
+// .image-wrapper {
+//   position: relative;
+//   inset: 0;
+//   z-index: -1;
 
-  .overlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff8f9;
-    background: linear-gradient(
-      60deg,
-      rgb(255, 255, 255) 30%,
-      rgba(255, 248, 249, 0.206) 100%
-    );
-    filter: opacity(0.9);
-    z-index: 1;
-  }
+//   .overlay {
+//     position: absolute;
+//     inset: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: #fff8f9;
+//     background: linear-gradient(
+//       60deg,
+//       rgb(255, 255, 255) 30%,
+//       rgba(255, 248, 249, 0.206) 100%
+//     );
+//     filter: opacity(0.9);
+//     z-index: 1;
+//   }
 
-  img {
-    position: absolute;
-    inset: 0;
-    object-fit: cover;
-    object-position: center center;
-    width: 100%;
-    height: 100%;
-    @media screen and (min-width: 992px) {
-      object-position: top center;
-    }
-  }
-}
+//   img {
+//     position: absolute;
+//     inset: 0;
+//     object-fit: cover;
+//     object-position: center center;
+//     width: 100%;
+//     height: 100%;
+//     @media screen and (min-width: 992px) {
+//       object-position: top center;
+//     }
+//   }
+// }
 
 /*=============== SCROLL UP ===============*/
 .scrollup {

@@ -1,23 +1,33 @@
-function setImageSrc(a) {
-  const e = a.dataset.src ? a.dataset.src : a.dataset.iesrc;
-  a.setAttribute("src", e), (a.onload = () => a.classList.add("image-fade"));
-}
+const setImageSrc = (element) => {
+  const src = element.dataset.src || element.dataset.iesrc;
+  if (!src) return; // Early return if no source is provided
 
-const lazyloadImgTag = () => {
-  lozad(".img-lozad", { load: setImageSrc }).observe();
-};
+  element.setAttribute("src", src);
 
-const lazyloadPictureTag = (event) => {
-  lozad(".picture-lozad", {
-    load: (a) => {
-      a
-        .querySelectorAll("source")
-        .forEach((a) => a.setAttribute("srcset", a.dataset.srcset)),
-        setImageSrc(a.querySelector("img"));
+  element.addEventListener(
+    "load",
+    () => {
+      element.classList.remove("image-skeleton");
+      element.classList.add("image-fade");
     },
-  }).observe();
+    { once: true }
+  ); // Ensure event listener is removed after execution
 };
 
-document.addEventListener("DOMContentLoaded", lazyloadPictureTag);
+const lazyload = (selector, loadCallback) => {
+  const observer = lozad(selector, { load: loadCallback });
+  observer.observe();
+  return observer; // Return the observer for potential future use
+};
 
-// export { lazyloadPictureTag };
+const lazyloadPictureTag = () => {
+  lazyload(".picture-lozad", (picture) => {
+    picture.querySelectorAll("source").forEach((source) => {
+      source.setAttribute("srcset", source.dataset.srcset);
+    });
+
+    setImageSrc(picture.querySelector("img"));
+  });
+};
+
+export { lazyloadPictureTag };

@@ -1,39 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- ===== Standard meta tags ===== -->
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <meta name="description" content="Dental Clinic in USA" />
     <meta name="author" content="Hassan Shahzad" />
     <meta name="keywords" content="online medical services" />
-
-    <meta property="og:title" content="" />
-    <meta property="og:type" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
-
     <link rel="canonical" href="index.html" />
 
-    <!-- ================== Document Title ================== -->
-    <title>Online Medical Services</title>
+    <!-- ===== Social Media Display ===== -->
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:image:secure_url" content="" />
 
     <!-- ================== Favicon ================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon-32x32.png?v1"
+    />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- ================== Preloads ================== -->
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/images/logo-placeholder.svg"
+    />
+
+    <!--  3rd Party Fonts  -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="./assets/fonts/Assistant-Regular.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="./assets/fonts/Didact-Gothic.woff2"
+      crossorigin
+    />
 
     <!-- ================== Critical CSS ================== -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="./assets/css/critical-style.min.css"
       as="style"
-    />
+    /> -->
 
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      .heading {
+        font-family: "Didact Gothic", sans-serif;
+        color: #073635;
+        margin: 0;
+        line-height: 1.3;
+        letter-spacing: 0.03rem;
+      }
+      .heading--center {
+        text-align: center;
+        max-width: 100%;
+      }
+      .heading--sub {
+        letter-spacing: 0.05rem;
+        font-weight: 900;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.6875rem;
+      }
+      :root {
+        font-size: 1rem;
+      }
+      @media (min-width: 400px) and (max-width: 1400px) {
+        :root {
+          font-size: clamp(1rem, 0.2vw + 0.95rem, 1.125rem);
+        }
+        h1 {
+          font-size: clamp(2rem, 1vw + 1.75rem, 2.625rem);
+        }
+        h2 {
+          font-size: clamp(1.6875rem, 0.8vw + 1.4875rem, 2.1875rem);
+        }
+      }
+      *,
+      ::after,
+      ::before {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: Assistant, sans-serif;
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.75;
+        letter-spacing: 0.02rem;
+      }
+      body,
+      html {
+        display: block;
+        overflow-x: hidden;
+        color: #161a1d;
+      }
+      @font-face {
+        font-style: normal;
+        font-family: Assistant;
+        font-weight: 200 600;
+        font-display: swap;
+        src: local(""), url(../fonts/Assistant-Regular.woff2) format("woff2");
+      }
+      @font-face {
+        font-style: normal;
+        font-family: "Didact Gothic";
+        font-weight: 400;
+        font-display: swap;
+        src: local(""), url(../fonts/Didact-Gothic.woff2) format("woff2");
+      }
+      p {
+        margin: 0.6rem 0;
+      }
+      a {
+        text-decoration: none;
+        color: #49e9e6;
+      }
+      ul.style-none {
+        list-style: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      ::-webkit-selection {
+        color: #f1f1f1;
+        background: #1f1f1f;
+      }
+      ::-webkit-scrollbar {
+        width: 0.6rem;
+        background: #4c4c4c;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 100px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #262626;
+      }
+      .container {
+        max-width: 100%;
+        padding: 0 1rem;
+        margin: 0 auto;
+      }
+      .section__ptx2 {
+        padding-block-start: calc(clamp(3.75rem, 0.25vw, 6.25rem) * 2);
+      }
+      .section__pb {
+        padding-block-end: calc(clamp(3.75rem, 0.25vw, 6.25rem) * 1);
+      }
+      .section__py {
+        padding-block: calc(clamp(3.75rem, 0.25vw, 6.25rem) * 1);
+      }
+      @media screen and (min-width: 640px) {
+        .container {
+          max-width: 640px;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        .container {
+          max-width: 768px;
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        .container {
+          max-width: 1024px;
+        }
+      }
+      @media screen and (min-width: 1280px) {
+        .container {
+          max-width: 1280px;
+        }
+      }
+      .navbar {
+        z-index: 100;
+        width: 100%;
+      }
+      .navbar__fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      .navbar .container {
+        position: relative;
+        height: 3.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .navbar .nav__branding {
+        position: relative;
+        overflow: hidden;
+        height: 2.3333333333rem;
+        aspect-ratio: 4/1;
+      }
+      .navbar .nav__branding .nav__logo {
+        width: 100%;
+        height: 100%;
+      }
+      .navbar .nav__branding img.nav__logo {
+        position: absolute;
+        object-fit: cover;
+        object-position: center center;
+        inset: 0;
+      }
+      .navbar .nav__close,
+      .navbar .nav__toggle {
+        display: flex;
+        font-size: 1.5rem;
+      }
+      .navbar .nav__close i,
+      .navbar .nav__toggle i {
+        color: #000;
+      }
+      .navbar .nav__list,
+      .navbar .nav__social {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1rem;
+      }
+      .navbar .nav__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+      }
+      .navbar .nav__link {
+        font-size: 1.3rem !important;
+        font-weight: 300;
+        color: #e8fcfc;
+      }
+      .navbar .nav__close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+      }
+      .navbar .nav__close i {
+        color: #fff;
+      }
+      .navbar .nav__social {
+        gap: 1rem;
+        align-self: flex-end;
+      }
+      .navbar .nav__social .nav__social-link {
+        color: #e8fcfc;
+        font-size: 1.3rem;
+      }
+      @media screen and (max-width: 1023px) {
+        .navbar .nav__menu {
+          position: fixed;
+          left: -100%;
+          top: 0;
+          background-color: #073635;
+          padding: 8rem 1.5rem 2.5rem 4rem;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        .navbar .nav__list {
+          flex-direction: column;
+          align-items: start;
+        }
+        .navbar .nav__list .btn {
+          background: #90f1ef;
+          color: #073635;
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        .navbar .nav__branding {
+          height: 1.8rem;
+        }
+        .navbar .container {
+          height: 4.5rem;
+          padding: 0 2rem;
+          border-radius: 50px;
+        }
+        .navbar .nav__close,
+        .navbar .nav__toggle {
+          display: none;
+        }
+        .navbar .nav__link {
+          font-size: 1.05rem !important;
+          font-weight: 400;
+          color: #000;
+        }
+        .navbar .nav__menu {
+          display: flex;
+          align-items: center;
+          gap: 3rem;
+        }
+        .navbar .nav__list {
+          flex-direction: row;
+          gap: 1.5rem;
+        }
+        .navbar .nav__social {
+          display: none;
+        }
+      }
+      .hero__btn__group {
+        width: 100%;
+        min-height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+      .btn {
+        font-family: Assistant, sans-serif;
+        font-size: 0.95rem;
+        font-weight: 400;
+        letter-spacing: 0.1rem;
+        border-radius: 0.12rem;
+        height: 2.5rem;
+        padding: 8px 20px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        outline: 0;
+        border: none;
+        box-shadow: none;
+        text-align: center;
+      }
+      .btn__block {
+        width: 100%;
+      }
+      .btn__md {
+        height: 3rem;
+        padding: 8px 30px;
+      }
+      .btn__rounded {
+        border-radius: 0.25rem;
+      }
+      .btn__rounded-circle {
+        border-radius: 3.125rem;
+      }
+      .btn__primary {
+        position: relative;
+        background: #073635;
+      }
+      .btn__primary.btn__hover-shine {
+        overflow: hidden;
+      }
+      .btn__primary.btn__hover-shine::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0) 25%,
+          rgba(73, 233, 230, 0.5),
+          rgba(255, 255, 255, 0) 60%
+        );
+        top: 0;
+        left: -100px;
+        opacity: 0.6;
+      }
+      .btn__accent {
+        position: relative;
+        background: #fff;
+        color: #000;
+      }
+      @media (min-width: 520px) and (max-width: 767px) {
+        .hero__btn__group {
+          flex-direction: row;
+          justify-content: start;
+          align-items: center;
+        }
+        .hero__btn__group .btn {
+          width: 100%;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .hero__btn__group {
+          flex-direction: row;
+          justify-content: start;
+          align-items: center;
+        }
+        .hero__btn__group .btn {
+          width: fit-content;
+          font-size: 0.85rem;
+        }
+      }
+      @media (min-width: 1023px) {
+        .hero__btn__group {
+          display: flex;
+          flex-direction: row;
+          justify-content: start;
+          align-items: center;
+        }
+        .hero__btn__group .btn {
+          width: fit-content;
+        }
+      }
+      .header__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: var(--section-bg);
+        overflow: hidden;
+      }
+      header {
+        position: relative;
+      }
+      header .header__hero-waves {
+        display: flex;
+        position: absolute;
+        min-height: 50px;
+        max-height: auto;
+        width: 100%;
+        bottom: -1%;
+        right: 0;
+        z-index: 2;
+      }
+      header .header__hero-waves .fill-color {
+        fill: #fff;
+        fill-opacity: 1;
+      }
+      header .header__hero-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+      header .header__hero-container .header__hero-content {
+        position: relative;
+        height: 100%;
+        max-width: 100%;
+      }
+      header .header__hero-container .header__hero-content.header__hero-one {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        z-index: 3;
+      }
+      header
+        .header__hero-container
+        .header__hero-content.header__hero-one
+        .hero__btn__group {
+        margin-top: 0.6rem;
+      }
+      header
+        .header__hero-container
+        .header__hero-content.header__hero-two
+        #circle__element,
+      header
+        .header__hero-container
+        .header__hero-content.header__hero-two
+        #square-boxes__element {
+        position: absolute;
+        aspect-ratio: 1/1;
+        z-index: 0;
+      }
+      header
+        .header__hero-container
+        .header__hero-content.header__hero-two
+        #circle__element {
+        min-height: fit-content;
+        width: 80%;
+        top: 50%;
+        right: 50%;
+        transform: translate(55%, -50%);
+      }
+      header
+        .header__hero-container
+        .header__hero-content.header__hero-two
+        #circle__element
+        .cls-1 {
+        fill: #f5f3f4;
+      }
+      header
+        .header__hero-container
+        .header__hero-content.header__hero-two
+        #square-boxes__element {
+        min-height: fit-content;
+        width: 40%;
+        top: 48%;
+        left: 40%;
+        transform: translate(-80%, -80%);
+      }
+      header
+        .header__hero-container
+        .header__hero-content.header__hero-two
+        #square-boxes__element
+        .cls-1 {
+        fill: #139f9d;
+      }
+      header
+        .header__hero-container
+        .header__hero-content.header__hero-two
+        .image__wrapper {
+        position: relative;
+        aspect-ratio: 1/1;
+        z-index: 1;
+      }
+      @media screen and (min-width: 768px) {
+        header .header__hero-container {
+          flex-direction: row;
+          align-items: end;
+        }
+        header .header__hero-container .header__hero-one {
+          flex: 1.5 0;
+          padding: 0 0 15% 0;
+        }
+        header .header__hero-container .header__hero-two {
+          flex: 1 0;
+        }
+      }
+      @media screen and (min-width: 1280px) {
+        header .header__hero-container {
+          align-items: center;
+        }
+        header .header__hero-container .header__hero-one {
+          flex: 1 0;
+          margin: -15% 0 0 0;
+          padding: 0;
+        }
+        header .header__hero-container .header__hero-two {
+          flex: 1 0;
+        }
+      }
+    </style>
 
     <!-- ================== Main CSS ================== -->
-    <!-- <link rel="preload" href="./assets/css/style.css" as="style" /> -->
-    <!-- <link rel="stylesheet" href="./assets/css/style.css" as="style" /> -->
     <link
       rel="preload"
       href="./assets/css/style-bundled.min.css"
@@ -49,7 +574,7 @@
     </noscript>
 
     <!-- ================== 3rd Party Fonts ================== -->
-    <link
+    <!-- <link
       rel="preload"
       href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..600&family=Didact+Gothic&display=swap"
       as="style"
@@ -61,7 +586,7 @@
         href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..600&family=Didact+Gothic:wght@200..900&display=swap"
         as="style"
       />
-    </noscript>
+    </noscript> -->
 
     <!-- ================== Remix Icons ================== -->
     <link
@@ -83,6 +608,9 @@
         as="style"
       />
     </noscript>
+
+    <!-- ================== Document Title ================== -->
+    <title>Online Medical Services</title>
   </head>
   <body>
     <!-- ================== Header ================== -->
@@ -106,7 +634,7 @@
         <div class="navbar__container container">
           <div class="nav__branding">
             <picture>
-              <source
+              <!-- <source
                 type="image/avif"
                 srcset="
                   ./assets/images/logo-placeholder-250w.avif 250w,
@@ -119,14 +647,16 @@
                   ./assets/images/logo-placeholder-250w.webp 250w,
                   ./assets/images/logo-placeholder-500w.webp 500w
                 "
-              />
+              /> -->
 
               <img
                 class="nav__logo"
                 width="500px"
                 height="500px"
-                src="./assets/images/logo-placeholder.png"
+                src="./assets/images/logo-placeholder.svg"
                 alt="Branding"
+                decoding="async"
+                loading="eager"
               />
               <!-- NO img element -->
               <!-- instead of img element, there will be the last source with the minimum dimensions -->
@@ -1035,31 +1565,29 @@
                 <source
                   type="image/avif"
                   srcset="
-                    ./assets/images/doctor-header-hero-250w.avif   250w,
-                    ./assets/images/doctor-header-hero-500w.avif   500w,
-                    ./assets/images/doctor-header-hero-750w.avif   750w,
-                    ./assets/images/doctor-header-hero-1000w.avif 1000w
+                    ./assets/images/doctor-header-hero-250w.avif   400w,
+                    ./assets/images/doctor-header-hero-500w.avif   640w,
+                    ./assets/images/doctor-header-hero-750w.avif  1024w,
+                    ./assets/images/doctor-header-hero-1000w.avif
                   "
                 />
                 <source
                   type="image/webp"
                   srcset="
-                    ./assets/images/doctor-header-hero-250w.webp   250w,
-                    ./assets/images/doctor-header-hero-500w.webp   500w,
-                    ./assets/images/doctor-header-hero-750w.webp   750w,
-                    ./assets/images/doctor-header-hero-1000w.webp 1000w
+                    ./assets/images/doctor-header-hero-250w.webp   400w,
+                    ./assets/images/doctor-header-hero-500w.webp   640w,
+                    ./assets/images/doctor-header-hero-750w.webp  1024w,
+                    ./assets/images/doctor-header-hero-1000w.webp
                   "
                 />
 
                 <img
                   class=""
-                  width="750px"
+                  width="1000px"
                   height="300px"
-                  src="./assets/images/doctor-header-hero-750w.webp"
+                  src="./assets/images/doctor-header-hero.png"
                   alt="About Section Image"
                 />
-                <!-- NO img element -->
-                <!-- instead of img element, there will be the last source with the minimum dimensions -->
               </picture>
             </div>
           </div>
@@ -1547,7 +2075,7 @@
                 />
 
                 <img
-                  class="about__image"
+                  class="image-skeleton"
                   width="512px"
                   height="512px"
                   data-src="./assets/images/chat-with-doctor.png"
@@ -3004,7 +3532,7 @@
                 />
 
                 <img
-                  class="about__image"
+                  class="image-skeleton"
                   width="512px"
                   height="512px"
                   data-src="./assets/images/faq-doctor.png"
@@ -3025,7 +3553,7 @@
         <div class="footer__content">
           <div class="nav__branding">
             <picture>
-              <source
+              <!-- <source
                 type="image/avif"
                 srcset="
                   ./assets/images/logo-placeholder-250w.avif 250w,
@@ -3038,13 +3566,13 @@
                   ./assets/images/logo-placeholder-250w.webp 250w,
                   ./assets/images/logo-placeholder-500w.webp 500w
                 "
-              />
+              /> -->
 
               <img
                 class="nav__logo"
                 width="500px"
                 height="500px"
-                src="./assets/images/logo-placeholder.png"
+                src="./assets/images/logo-placeholder.svg"
                 alt="Branding"
               />
               <!-- NO img element -->
@@ -3150,11 +3678,10 @@
       <i class="ri-arrow-up-s-line scrollup__icon"></i>
     </a>
 
+    <script defer src="./assets/js/modules/lozad.min.js"></script>
+    <!-- <script defer src="./assets/js/_lazy_load_image.js"></script> -->
+
     <!-- ================== Main JS ================== -->
-
     <script src="./assets/js/script-bundled.min.js" type="module"></script>
-
-    <script src="./assets/js/modules/lozad.min.js"></script>
-    <script src="./assets/js/_lazy_load_image.js"></script>
   </body>
 </html>
